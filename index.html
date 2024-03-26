@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarot</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url(images/image.png);
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    #carta {
+        width: 300px;
+        height: auto;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<img id="carta" src="images/back_card.png" alt="boca_abajo">
+<script>
+    var cartas = {
+        "The Fool": "images/0_OVATarot_TheFool.png",
+        "The Magician": "images/1_OVATarot_TheMagician.png",
+        "The High Priestess": "images/2_OVATarot_TheHighPriestess.png",
+        "The Empress": "images/3_OVATarot_TheEmpress.png",
+        "The Emperor": "images/4_OVATarot_TheEmperor.png",
+        "The Hierophant": "images/5_OVATarot_TheHierophant.png",
+        "The Lovers": "images/6_OVATarot_TheLover.png",
+        "The Chariot": "images/7_OVATarot_TheChariot.png",
+        "Strength": "images/8_OVATarot_Strength.png",
+        "The Hermit": "images/9_OVATarot_TheHermit.png",
+        "Wheel of Fortune": "images/10_OVATarot_WheelOfFortune.png",
+        "Justice": "images/11_OVATarot_Justice.png",
+        "The Hanged Man": "images/12_OVATarot_TheHangedMan.png",
+        "Death": "images/13_OVATarot_Death.png",
+        "Temperance": "images/14_OVATarot_Temperance.png",
+        "The Devil": "images/15_OVATarot_TheDevil.png",
+        "The Tower": "images/16_OVATarot_TheTower.png",
+        "The Star": "images/17_OVATarot_TheStar.png",
+        "The Moon": "images/18_OVATarot_TheMoon.png",
+        "The Sun": "images/19_OVATarot_TheSun.png",
+        "Judgement": "images/20_OVATarot_Judgement.png",
+        "The World": "images/21_OVATarot_TheWorld.png"
+    };
+    var cartaMostrada = false;
+    var imgCarta = document.getElementById('carta');
+    function seleccionarCarta() {
+        if (cartaMostrada) {
+            imgCarta.src = "images/back_card.png";
+            imgCarta.alt = "boca_abajo";
+        } else {
+            var nombresCartas = Object.keys(cartas);
+            var nombreCarta = nombresCartas[Math.floor(Math.random() * nombresCartas.length)];
+            imgCarta.src = cartas[nombreCarta];
+            imgCarta.alt = nombreCarta;
+        }
+        cartaMostrada = !cartaMostrada;
+    }
+    imgCarta.addEventListener('click', seleccionarCarta);
+</script>
+</body>
+</html>
+
+
